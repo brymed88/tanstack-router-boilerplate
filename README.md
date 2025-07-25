@@ -1,6 +1,39 @@
-# Boilerplate Example Repo
+# Tanstack Router Boilerplate Example Repo
 
-## Stack - TW + Shadcn-ui + Vite + React + TS + Tanstack Router
+## Tech Stack
 
-- This template provides a minimal setup to get React working in Vite + Tailwind + Tanstack Router + Shadcn UI
+- Tailwind
+- ShadCN
+- Vite
+- Vitest - unit testing
+- React
+- Typescript
+- Tanstack Router
+- Husky / Lint-staged
+- Prettier - formatting
+
+## Description
+
+- This template provides a minimal setup to get React working with the above stack
 - Tanstack Devtools has been intentionally included in demo
+- ThemeToggle included for dark/light/system theming
+
+## Steps
+
+1. Rename .env.example to .env
+
+To install packages
+
+`npm install`
+
+For tests run
+
+`npm run test`
+
+For coverage run
+
+`npm run coverage`
+
+To lint, run
+
+`npm run lint`

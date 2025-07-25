@@ -1,18 +1,28 @@
-import { createRootRoute, Outlet } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools'
+import { createRootRoute, HeadContent, Outlet } from '@tanstack/react-router'
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
 // components
-import { ModeToggle } from '@/components/shared/ModeToggle'
+import Header from '@/components/templates/parts/header'
 
 export const Route = createRootRoute({
      component: () => (
           <>
-               <div className="flex gap-2 p-2">
-                    <ModeToggle />
-               </div>
+               <HeadContent />
+               <Header />
+
                <hr />
-               <Outlet />
+               <main className="size-full flex-col p-4">
+                    <Outlet />
+               </main>
                <TanStackRouterDevtools />
           </>
      ),
+     head: () => ({
+          meta: [
+               {
+                    title: 'My App',
+               },
+               { name: 'description', content: 'Learn more about MyApp' },
+          ],
+     }),
 })
