@@ -1,3 +1,4 @@
+import ContactPage from '@/components/templates/pages/contact'
 import { SITE_CONFIG } from '@/config'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -6,7 +7,7 @@ export const Route = createFileRoute('/contact')({
           return {
                meta: [
                     {
-                         title: SITE_CONFIG.siteName + 'Contact Page',
+                         title: SITE_CONFIG.siteName + ' - Contact Page',
                     },
                     {
                          name: 'This is the contact page',
@@ -15,9 +16,5 @@ export const Route = createFileRoute('/contact')({
                ],
           }
      },
-     component: Contact,
+     component: ContactPage,
 })
-
-function Contact() {
-     return <h3>This is the contact page</h3>
-}

@@ -1,3 +1,4 @@
+import HomePage from '@/components/templates/pages/home'
 import { SITE_CONFIG } from '@/config'
 import { createFileRoute } from '@tanstack/react-router'
 export const Route = createFileRoute('/')({
@@ -5,7 +6,7 @@ export const Route = createFileRoute('/')({
           return {
                meta: [
                     {
-                         title: SITE_CONFIG.siteName + 'Home Page',
+                         title: SITE_CONFIG.siteName + ' - Home Page',
                     },
                     {
                          name: 'This is the home page',
@@ -14,9 +15,5 @@ export const Route = createFileRoute('/')({
                ],
           }
      },
-     component: Index,
+     component: HomePage,
 })
-
-function Index() {
-     return <h3>Shadcn + Tailwind + Tanstack Router Demo</h3>
-}

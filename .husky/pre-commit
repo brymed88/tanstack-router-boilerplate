@@ -1,0 +1,24 @@
+npx lint-staged
+npm run coverage:silent
+
+json_file="./coverage/coverage-summary.json"
+
+# Extract the values from coverage reports
+echo "\nCoverage Summary -------------------------"
+line_coverage=$(jq -r '.total.lines.pct' "$json_file")
+function_coverage=$(jq -r '.total.functions.pct' "$json_file")
+branch_coverage=$(jq -r '.total.branches.pct' "$json_file")
+statement_coverage=$(jq -r '.total.statements.pct' "$json_file")
+coverage_percent=$(echo "scale=2; ($branch_coverage + $statement_coverage) / 2" | bc)
+
+echo "Lines: $line_coverage%"
+echo "Functions: $function_coverage%"
+echo "Branches: $branch_coverage%"
+echo "Statements: $statement_coverage%"
+echo "Reportable Coverage (Place in PR): $coverage_percent"
+
+if (( $(echo "$coverage_percent < 80.00" | bc -l) )); then
+     echo "\n----------\nERROR: Coverage below acceptable threshold of 80%. Current coverage is $coverage_percent%.\n----------\n"
+        exit 1 # Exit with a non-zero status
+fi
+echo "------------------------------------------\n"

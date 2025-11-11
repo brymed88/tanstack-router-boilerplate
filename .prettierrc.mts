@@ -1,0 +1,19 @@
+import { type Config } from 'prettier'
+
+const config: Config = {
+     trailingComma: 'es5',
+     tabWidth: 5,
+     semi: false,
+     singleQuote: true,
+     experimentalTernaries: true,
+     bracketSpacing: true,
+     bracketSameLine: false,
+     printWidth: 80,
+     arrowParens: 'always',
+     plugins: [
+          'prettier-plugin-organize-imports',
+          'prettier-plugin-tailwindcss',
+     ],
+}
+
+export default config

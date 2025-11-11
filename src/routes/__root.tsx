@@ -2,16 +2,17 @@ import { createRootRoute, HeadContent, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
 // components
-import Header from '@/components/templates/parts/header'
+import TraditionalHeader from '@/components/templates/headers/traditional'
+import { SITE_CONFIG } from '@/config'
 
 export const Route = createRootRoute({
      component: () => (
           <>
                <HeadContent />
-               <Header />
+               <TraditionalHeader />
 
                <hr />
-               <main className="size-full flex-col p-4">
+               <main className="size-full min-h-[calc(100vh-80px)] flex-col p-4 pt-20">
                     <Outlet />
                </main>
                <TanStackRouterDevtools />
@@ -20,7 +21,7 @@ export const Route = createRootRoute({
      head: () => ({
           meta: [
                {
-                    title: 'My App',
+                    title: SITE_CONFIG + ' - My App',
                },
                { name: 'description', content: 'Learn more about MyApp' },
           ],

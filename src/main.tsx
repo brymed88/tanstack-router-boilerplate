@@ -3,7 +3,7 @@ import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
 //theme provider
-import { ThemeProvider } from '@/components/shared/ThemeProvider'
+import { ThemeProvider } from './context/ThemeProvider'
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
@@ -31,7 +31,7 @@ if (!rootElement.innerHTML) {
      const root = ReactDOM.createRoot(rootElement)
      root.render(
           <StrictMode>
-               <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+               <ThemeProvider defaultTheme="system" storageKey="_site_theme">
                     <RouterProvider router={router} />
                </ThemeProvider>
           </StrictMode>

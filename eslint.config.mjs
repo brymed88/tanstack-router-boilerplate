@@ -3,9 +3,8 @@
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
 
-export default tseslint.config(
-     eslint.configs.recommended,
-     ...tseslint.configs.recommended,
+/** @type {import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigFile} */
+export default [
      {
           ignores: [
                '**/.vscode/*',
@@ -13,7 +12,13 @@ export default tseslint.config(
                './tsconfig.json',
                './*.config.json',
                './*.config.ts',
+               'dist/**',
+               'dist',
+               'node_modules/**',
+               'build/**',
+               'scripts/**',
           ],
-          rules: {},
-     }
-)
+     },
+     eslint.configs.recommended,
+     ...tseslint.configs.recommended,
+]

@@ -2,13 +2,12 @@
 
 ## Tech Stack
 
-- Tailwind
-- ShadCN
+- Tailwind - V4
 - Vite
 - Vitest - unit testing
 - React
 - Typescript
-- Tanstack Router
+- Tanstack Router / Query
 - Husky / Lint-staged
 - Prettier - formatting
 

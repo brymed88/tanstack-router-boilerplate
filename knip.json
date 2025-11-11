@@ -1,0 +1,10 @@
+{
+     "$schema": "https://unpkg.com/knip@5/schema.json",
+     "entry": ["src/main.tsx", "!scripts/except-this-one.ts"],
+     "project": [
+          "src/**/*.{ts,tsx,js,jsx,css}",
+          "src/**/*.test.{ts,tsx,js,jsx}"
+     ],
+     "ignore": ["src/routeTree.gen.ts"],
+     "ignoreDependencies": ["husky", "lint-staged"]
+}
