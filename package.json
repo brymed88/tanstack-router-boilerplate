@@ -12,7 +12,8 @@
           "coverage:silent": "vitest run --coverage --silent --reporter=dot",
           "preview": "vite preview",
           "format": "prettier --write .",
-          "check-unused": "knip"
+          "check-unused": "knip",
+          "docker:local": "docker build -t testbuild -f ./docker-file-dev.yml . && docker run -p 8080:80 testbuild"
      },
      "lint-staged": {
           "*.{ts,tsx}": [

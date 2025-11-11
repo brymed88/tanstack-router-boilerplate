@@ -36,3 +36,11 @@ For coverage run
 To lint, run
 
 `npm run lint`
+
+To build and run locally with Docker
+
+PREREQUISITE - Make sure Docker Desktop or CLI installed - https://www.docker.com/products/docker-desktop/
+
+To run - will build and server dist folder using nginx on http://localhost:8080
+
+`npm run docker:local`

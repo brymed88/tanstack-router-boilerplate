@@ -1,0 +1,24 @@
+# must be node:18 or greater for prod
+FROM node:20 AS build
+
+WORKDIR /myapp
+
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+RUN echo "Built files:" && ls -la /myapp/dist
+
+FROM nginx:alpine
+
+RUN rm -rf /usr/share/nginx/html/*
+
+// Neccessary so that nginx serves our app correctly
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=build /myapp/dist /usr/share/nginx/html
+
+EXPOSE 80
